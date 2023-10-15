@@ -4,6 +4,17 @@ type Vehicle interface {
 	GetType() string
 }
 
+func isTollFreeVehicle(vehicle Vehicle) bool {
+	vehicleType := vehicle.GetType()
+
+	return vehicleType == "Motorbike" ||
+		vehicleType == "Tractor" ||
+		vehicleType == "Emergency" ||
+		vehicleType == "Diplomat" ||
+		vehicleType == "Foreign" ||
+		vehicleType == "Military"
+}
+
 type Car struct {
 }
 

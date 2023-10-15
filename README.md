@@ -1,6 +1,19 @@
 # Coding assignment for Layer 10
 
-I decided to build in Golang, since I am very fond of that technology.  
+Here are some initial things that I wanted to address in the software:
+* Supplying pricing through config. Since this is an aspect of the operation that is very likely to change regularly, it's a nice thing to have in a malleable format.
+* Not separating free rate from other pricing.
+* Utilising the time lib a bit more to avoid comparison in other formats. This will help make the config easier to maintain too, since the format will be uniform.
+* Add some testing, to ensure that a few potential bugs were not being triggered, mainly around the grace-period thing.
+
+I had to take a few different routes on how to slice when rates apply, but in the end I feel like the day matchers and rate config turned out pretty well.
+
+It should be decently easy to maintain now, since most changes should be configurable.
+
+Vehicles, Holidays, and the service of calculation requests, I left fairly unchanged. Since it wasn't completely obvious to me how they would need to evolve.
+Holidays should probably be fetched in batches from somewhere, instead of hardcoded. I'm sure there is a lib for that, too.
+
+I also included an example config file. But I am not sure that a static JSON file would be a very good vehicle for that config. It is open to input errors...
 
 # Assignment: Toll fee calculator
 
