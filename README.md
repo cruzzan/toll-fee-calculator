@@ -15,6 +15,14 @@ Holidays should probably be fetched in batches from somewhere, instead of hardco
 
 I also included an example config file. But I am not sure that a static JSON file would be a very good vehicle for that config. It is open to input errors...
 
+Running main `go run .`
+
+## Late edits 2023-10-20
+* Corrected the order of the toll rate configs, so that the catchall isn't the first one.
+* Correcting how rate configs handles end. So that it goes to the max tick of the minute.
+* Set up matcher to apply the rate start and end to a new date based on the incoming instant. This fixes TZ preservation, and stops manipulation of the incoming instant.
+* Adds initial sorting of the data coming to the calculator.
+
 # Assignment: Toll fee calculator
 
 A calculator for vehicle toll fees.
