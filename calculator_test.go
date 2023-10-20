@@ -26,7 +26,7 @@ func TestCalculator_GetTollFee(t *testing.T) {
 			"Car single passage",
 			Car{},
 			[]time.Time{
-				time.Date(2023, 10, 5, 6, 45, 0, 0, time.UTC),
+				time.Date(2023, 10, 5, 6, 59, 59, 0, time.UTC),
 			},
 			16,
 		}, {
@@ -61,6 +61,18 @@ func TestCalculator_GetTollFee(t *testing.T) {
 				time.Date(2023, 10, 5, 8, 2, 0, 0, time.UTC),
 				time.Date(2023, 10, 5, 8, 5, 0, 0, time.UTC),
 				time.Date(2023, 10, 5, 8, 15, 0, 0, time.UTC),
+			},
+			38,
+		}, {
+			"Car morning commute. jumbled order",
+			Car{},
+			[]time.Time{
+				time.Date(2023, 10, 5, 8, 5, 0, 0, time.UTC),
+				time.Date(2023, 10, 5, 7, 13, 0, 0, time.UTC),
+				time.Date(2023, 10, 5, 8, 2, 0, 0, time.UTC),
+				time.Date(2023, 10, 5, 7, 3, 0, 0, time.UTC),
+				time.Date(2023, 10, 5, 8, 15, 0, 0, time.UTC),
+				time.Date(2023, 10, 5, 7, 33, 0, 0, time.UTC),
 			},
 			38,
 		},
